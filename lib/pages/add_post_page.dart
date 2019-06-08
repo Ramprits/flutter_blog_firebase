@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/database/post_service.dart';
+import 'package:flutter_blog/pages/post_page.dart';
 import '../models/post_model.dart';
 
 import '../color.dart';
@@ -87,8 +88,12 @@ class _AddPostPageState extends State<AddPostPage> {
                     },
                   ),
                   RaisedButton(
-                    child: Text('Save'),
+                    child: Text(
+                      'Save',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                    ),
                     elevation: 8.0,
+                    color: Theme.of(context).primaryColor,
                     shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(7.0)),
                     ),
@@ -110,6 +115,8 @@ class _AddPostPageState extends State<AddPostPage> {
       post.date = DateTime.now().millisecondsSinceEpoch;
       final postService = PostService();
       postService.addPost(post);
+      _formData.reset();
+      Navigator.pushReplacementNamed(context, "/");
     }
   }
 }

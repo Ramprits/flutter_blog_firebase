@@ -15,7 +15,7 @@ class Post {
         this.date = snap.value[DATE],
         this.title = snap.value[TITLE],
         this.description = snap.value[DESCRIPTION];
-  Map toMap() {
+  Map<String, dynamic> toMap() {
     return {DATE: date, TITLE: title, DESCRIPTION: description};
   }
 }
